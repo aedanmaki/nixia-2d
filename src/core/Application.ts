@@ -2,6 +2,7 @@
 import { Base } from "./Base";
 import { ITickable } from "./ITickable";
 import { Renderer } from "./Renderer";
+import { Level } from "./Level";
 
 /**
  * Represents an Application.
@@ -11,6 +12,11 @@ export class Application extends Base {
      * If the game has already been initialized.
      */
     private wasInitialized: boolean = false;
+
+    /**
+     * If the game is ready.
+     */
+    private isReady: boolean = false; 
 
     /**
      * Previous tick time.
@@ -28,6 +34,11 @@ export class Application extends Base {
     private renderer: Renderer;
 
     /**
+     * The default level.
+     */
+    private defaultLevel!: Level;
+
+    /**
      * Creates a new Application.
      */
     constructor() {
@@ -37,9 +48,9 @@ export class Application extends Base {
     }
 
     /**
-     * Initialize the Application.
+     * Starts the Application.
      */
-    init() {
+    start() {
         if (this.wasInitialized) throw new Error('Application is already initialized.');
         this.wasInitialized = true;
 
@@ -56,6 +67,8 @@ export class Application extends Base {
      * Called when the game is ready.
      */
     private _ready() {
+        this.isReady = true;
+        if (!this.defaultLevel) throw new Error("No default level was assigned, cannot create game.");
         this.fire('ready');
 
         requestAnimationFrame(this._tick);
@@ -80,5 +93,13 @@ export class Application extends Base {
         this.previousTickTime = now;
 
         requestAnimationFrame(this._tick);
+    }
+
+    /**
+     * Sets the default level.
+     */
+    setDefaultLevel(defaultLevel: Level) {
+        if (this.isReady) throw new Error("Cannot assign a default level when the game is already running.");
+        this.defaultLevel = defaultLevel;
     }
 }

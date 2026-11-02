@@ -7,10 +7,17 @@ import { ITickable } from "./ITickable";
  */
 export class Level extends Base implements ITickable {
     /**
+     * The level name.
+     */
+    private name: string;
+
+    /**
      * Creates a new Level.
      */
-    constructor() {
+    constructor(name: string) {
         super();
+
+        this.name = name;
     }
 
     /**
