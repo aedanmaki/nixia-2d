@@ -1,6 +1,6 @@
 {
     "name": "@aedanmaki/nixia-2d",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": {
         "name": "Aedan Maki",
         "email": "aedanmaki@gmail.com"
@@ -22,6 +22,8 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7",
         "typescript": "^7.0.2",
         "vite": "^8.3.5",
         "vite-plugin-singlefile": "^2.3.4"
