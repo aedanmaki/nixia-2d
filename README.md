@@ -1,2 +1,1 @@
-# nixia2d
-nixia2d
+# Nixia 2D
