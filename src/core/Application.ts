@@ -1,5 +1,5 @@
-// src/apps/Application.ts
-import { Base } from "../core/Base";
+// src/core/Application.ts
+import { Base } from "./Base";
 
 /**
  * Represents an Application.

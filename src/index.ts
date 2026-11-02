@@ -1,5 +1,5 @@
 // src/index.ts
 
-export * from './actors/Actor';
-export * from './apps/Application';
+export * from './core/Actor';
+export * from './core/Application';
 export * from './core/Base';

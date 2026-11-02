@@ -1,5 +1,5 @@
-// src/actors/Actor.ts
-import { Base } from "../core/Base";
+// src/core/Actor.ts
+import { Base } from "./Base";
 
 /**
  * Represents an Actor.

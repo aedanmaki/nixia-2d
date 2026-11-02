@@ -1,5 +1,6 @@
 {
-    "name": "@aedanmaki/nixia-2d",
+    "name": "@astral/2d",
+    "description": "Astral is a 2D web-based game engine written entirely in TypeScript.",
     "version": "0.0.2",
     "author": {
         "name": "Aedan Maki",
