@@ -1,7 +1,6 @@
 {
-    "name": "@astral/2d",
-    "description": "Astral is a 2D web-based game engine written entirely in TypeScript.",
-    "version": "0.0.2",
+    "name": "@nixia/2d",
+    "version": "0.0.3",
     "author": {
         "name": "Aedan Maki",
         "email": "aedanmaki@gmail.com"
@@ -20,11 +19,14 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "publish": "nixia publish"
+    },
+    "devDependencies": {
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7"
     },
     "dependencies": {
-        "fs": "^0.0.1-security",
-        "path": "^0.12.7",
         "typescript": "^7.0.2",
         "vite": "^8.3.5",
         "vite-plugin-singlefile": "^2.3.4"

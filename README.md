@@ -2,5 +2,9 @@
 
 ## Getting started
 ```bash
-npm i -D @aedanmaki/nixia-2d
+mkdir my-game
+cd my-game
+npm init -y
+npm install -d @nixia/2d
+nixia init
 ```
