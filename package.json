@@ -5,6 +5,7 @@
         "name": "Aedan Maki",
         "email": "aedanmaki@gmail.com"
     },
+    "bin": "./cli.js",
     "license": "MIT",
     "type": "module",
     "main": "./src/index.ts",
