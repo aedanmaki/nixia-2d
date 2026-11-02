@@ -48,11 +48,14 @@ Then in your `src/main.ts`, you can make this your default level by using the fo
 import * as Nixia from '@nixia/2d';
 import { MyLevel } from './levels/MyLevel';
 
+// Preload your level
+const myLevel = new MyLevel();
+
 // Create a new Application
 const app = new Nixia.Application();
 
 // Set the default level to our custom level
-app.setDefaultLevel(MyLevel);
+app.setDefaultLevel(myLevel);
 
 // Start the application
 app.start();
