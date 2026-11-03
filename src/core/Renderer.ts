@@ -1,5 +1,6 @@
 // src/core/Renderer.ts
 import { Base } from "./Base";
+import { RenderBuffer } from "./RenderBuffer";
 
 /**
  * Represents a Renderer.
@@ -14,6 +15,11 @@ export class Renderer extends Base {
      * The rendering context.
      */
     private ctx: CanvasRenderingContext2D;
+
+    /**
+     * Render buffers.
+     */
+    private buffers: RenderBuffer[] = [];
 
     /**
      * Creates a new Renderer.
@@ -42,6 +48,14 @@ export class Renderer extends Base {
      * Draws the buffers onto the canvas.
      */
     public draw() {
+        const buffers = this.buffers;
+        const len = buffers.length;
 
+        for (let i = 0; i < len; i++) {
+            const buffer = buffers[i];
+            if (buffer.bufferType === RenderBuffer_Type.Rectangle) {
+                
+            }
+        }
     }
 }

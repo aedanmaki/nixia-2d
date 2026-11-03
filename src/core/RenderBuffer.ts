@@ -5,9 +5,16 @@
  */
 export class RenderBuffer {
     /**
-     * Creates a new Render Buffer.
+     * The buffer type.
      */
-    constructor() {
+    public bufferType: RenderBuffer_Type;
 
+    /**
+     * Creates a new Render Buffer.
+     * 
+     * @param {RenderBuffer_Type} type The buffer type.
+     */
+    constructor(type: RenderBuffer_Type) {
+        this.bufferType = type;
     }
 }
