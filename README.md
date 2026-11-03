@@ -68,7 +68,7 @@ Actors represent game objects—or more specifically, active entities living ins
 // src/actors/MyActor.ts
 import * as Nixia from '@nixia/2d';
 
-export class MyActor extends Nixai.Actor {
+export class MyActor extends Nixia.Actor {
   constructor() {
     super("MyActor");
   }

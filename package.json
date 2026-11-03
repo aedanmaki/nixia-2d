@@ -1,6 +1,6 @@
 {
     "name": "@nixia/2d",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": {
         "name": "Aedan Maki",
         "email": "aedanmaki@gmail.com"
@@ -20,8 +20,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview",
-        "publish": "nixia publish"
+        "preview": "vite preview"
     },
     "devDependencies": {
         "fs": "^0.0.1-security",

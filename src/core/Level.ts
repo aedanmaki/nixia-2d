@@ -18,6 +18,8 @@ export class Level extends Base implements ITickable {
         super();
 
         this.name = name;
+
+        alert(this.name);
     }
 
     /**
