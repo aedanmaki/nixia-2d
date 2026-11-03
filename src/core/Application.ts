@@ -72,6 +72,8 @@ export class Application extends Base {
         this.fire('ready');
         this.defaultLevel.awake();
 
+        window.app = this;
+
         requestAnimationFrame(this._tick);
     }
 

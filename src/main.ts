@@ -4,6 +4,11 @@ class MyActor extends Nixia.Actor {
     constructor() {
         super();
     }
+
+    override tick(dt: number) {
+        super.tick(dt);
+
+    }
 }
 
 class MyLevel extends Nixia.Level {

@@ -4,6 +4,7 @@ export * from './core/Actor';
 export * from './core/Application';
 export * from './core/Base';
 export * from './core/Component';
+export * from './core/Context';
 export * from './core/IAwakable';
 export * from './core/ITickable';
 export * from './core/Level';
