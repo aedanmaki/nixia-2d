@@ -87,6 +87,6 @@ export class MyLevel extends Nixia.Level {
 
     // This both adds the actor to the scene and registers it with
     // the game lifecycle.
-    this.root.add(new MyActor(this, this.app));
+    this.root.add(new MyActor());
   }
 }
