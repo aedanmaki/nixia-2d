@@ -34,14 +34,14 @@ export class Renderer extends Base {
     /**
      * Completely clears the canvas.
      */
-    clear() {
+    public clear() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     /**
      * Draws the buffers onto the canvas.
      */
-    draw() {
+    public draw() {
 
     }
 }

@@ -50,7 +50,7 @@ export class Application extends Base {
     /**
      * Starts the Application.
      */
-    start() {
+    public start(): void {
         if (this.wasInitialized) throw new Error('Application is already initialized.');
         this.wasInitialized = true;
 
@@ -66,10 +66,11 @@ export class Application extends Base {
     /**
      * Called when the game is ready.
      */
-    private _ready() {
+    private _ready(): void {
         this.isReady = true;
         if (!this.defaultLevel) throw new Error("No default level was assigned, cannot create game.");
         this.fire('ready');
+        this.defaultLevel.awake();
 
         requestAnimationFrame(this._tick);
     }
@@ -77,7 +78,7 @@ export class Application extends Base {
     /**
      * Called on tick.
      */
-    private _tick = () => {
+    private _tick = (): void => {
         const now = Date.now();
         const delta = now - this.previousTickTime;
 
@@ -97,8 +98,10 @@ export class Application extends Base {
 
     /**
      * Sets the default level.
+     * 
+     * @param {Level} defaultLevel The level to be assigned as the default level.
      */
-    setDefaultLevel(defaultLevel: Level) {
+    public setDefaultLevel(defaultLevel: Level): void {
         if (this.isReady) throw new Error("Cannot assign a default level when the game is already running.");
         this.defaultLevel = defaultLevel;
     }

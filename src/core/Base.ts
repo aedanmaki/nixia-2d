@@ -6,7 +6,14 @@
 export abstract class Base {
     private events: Map<string, Function[]> = new Map();
 
-    on(event: string, callback: Function) {
+    /**
+     * Bind event to function callback.
+     * 
+     * @param {string} event Event name.
+     * @param {Function} callback Callback function.
+     * @returns {void}
+     */
+    public on(event: string, callback: Function): void {
         const callbacks = this.events.get(event);
         if (!callbacks) this.events.set(event, [callback]); else {
             callbacks.push(callback);
@@ -14,7 +21,13 @@ export abstract class Base {
         }
     }
 
-    fire(event: string) {
+    /**
+     * Calls an event.
+     * 
+     * @param {string} event Event name.
+     * @returns {void}
+     */
+    public fire(event: string): void {
         const callbacks = this.events.get(event);
         if (!callbacks) return;
         const len = callbacks.length;

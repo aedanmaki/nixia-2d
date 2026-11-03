@@ -1,5 +1,24 @@
 import * as Nixia from './index';
 
-const app = new Nixia.Application();
+class MyActor extends Nixia.Actor {
+    constructor() {
+        super();
+    }
+}
 
+class MyLevel extends Nixia.Level {
+    constructor() {
+        super("MyLevel");
+    }
+
+    override awake() {
+        super.awake();
+
+        alert("Hello, world!");
+    }
+}
+
+const level = new MyLevel();
+const app = new Nixia.Application();
+app.setDefaultLevel(level);
 app.start();
