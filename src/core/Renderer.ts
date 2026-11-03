@@ -11,6 +11,11 @@ export class Renderer extends Base {
     private canvas: HTMLCanvasElement;
 
     /**
+     * The rendering context.
+     */
+    private ctx: CanvasRenderingContext2D;
+
+    /**
      * Creates a new Renderer.
      */
     constructor() {
@@ -22,13 +27,15 @@ export class Renderer extends Base {
         this.canvas.height = 400;
         this.canvas.style.border = "1px solid black";
         document.body.appendChild(this.canvas);
+        const ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+        this.ctx = ctx;
     }
 
     /**
      * Completely clears the canvas.
      */
     clear() {
-        
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     /**

@@ -17,7 +17,7 @@ cd my-game
 ### 2. Install the core package
 Install the NIXIA package as a development dependency (this automatically pulls in Vite and all other required toolchain dependencies):
 ```bash
-npm install -D @nixia/2d
+npm install @nixia/2d
 ```
 
 ### 3. Initialize your project structure

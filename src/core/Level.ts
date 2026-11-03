@@ -9,7 +9,7 @@ export class Level extends Base implements ITickable {
     /**
      * The level name.
      */
-    private name: string;
+    public readonly name: string;
 
     /**
      * Creates a new Level.
@@ -18,8 +18,6 @@ export class Level extends Base implements ITickable {
         super();
 
         this.name = name;
-
-        alert(this.name);
     }
 
     /**
