@@ -16,3 +16,4 @@ export * from './core/Transform';
 export * from './core/Vector2';
 export * from './core/RenderComponent';
 export * from './core/PhysicsComponent';
+export * from './logger/Logger';
