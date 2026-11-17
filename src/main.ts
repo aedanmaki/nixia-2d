@@ -1,4 +1,5 @@
 import * as Nixia from './index';
+import mus from './testmusic.mp3';
 
 class MyActor extends Nixia.Actor {
     constructor() {
@@ -21,12 +22,6 @@ class MyActor extends Nixia.Actor {
 
     override awake() {
         super.awake();
-    }
-
-    override tick(dt: number) {
-        super.tick(dt);
-
-        this.transform.position.x += 0.1;
     }
 }
 
@@ -78,3 +73,8 @@ const level = new MyLevel();
 const app = new Nixia.Application();
 app.setDefaultLevel(level);
 app.start();
+
+const audio = new Audio(mus);
+document.body.onclick = function() {
+    audio.play();
+};
