@@ -1,3 +1,7 @@
+PORTIONS OF THIS PROJECT WERE MADE WITH AI
+- WebGL Rendering
+- MatterJS Physics Accumulator
+
 # 🎮 NIXIA 2D Game Engine
 > A lightning-fast, lightweight 2D game engine written entirely in TypeScript, engineered from the ground up to run seamlessly on low-power machines and resource-constrained devices.
 
@@ -90,3 +94,27 @@ export class MyLevel extends Nixia.Level {
     this.root.add(new MyActor());
   }
 }
+```
+
+## Adding components
+Nixia was designed in such a way to make the component system both easy to use, fast, and efficient.
+```ts
+// src/actors/MyActor.ts
+import * as Nixia from '@nixia/2d';
+
+export class MyActor extends Nixia.Actor {
+  constructor() {
+    super("MyActor");
+
+    // Lets add a circle renderer
+    const circleRenderer = new Nixia.RenderComponent(
+      this, // Owning actor
+      Nixia.RenderBuffer_Type.Circle, // Render type
+      Nixia.Transform.ZERO, // Transform offset
+      { color: [0.1, 0.55, 0.95, 1] } // Blue color
+    );
+    
+    this.registerComponent(circleRenderer);
+  }
+}
+```

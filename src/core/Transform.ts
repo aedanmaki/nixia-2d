@@ -43,9 +43,9 @@ export class Transform {
      */
     clone(): Transform {
         return new Transform(
-            this.position,
-            this.rotation,
-            this.scale
+            this.position.clone(),
+            new Rotator(this.rotation.deg),
+            this.scale.clone()
         );
     }
 
@@ -59,6 +59,7 @@ export class Transform {
     add(t1: Transform): void {
         this.position.add(t1.position);
         this.scale.add(t1.scale);
+        this.rotation = new Rotator((this.rotation.deg + t1.rotation.deg) % 360);
     }
 
     static ZERO: Transform = new Transform(

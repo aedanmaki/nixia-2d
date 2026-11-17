@@ -33,6 +33,7 @@
         "path": "^0.12.7"
     },
     "dependencies": {
+        "@nixia/2d": "file:nixia-2d-0.0.4.2.tgz",
         "matter-js": "^0.20.0",
         "typescript": "^7.0.2",
         "vite": "^8.3.5",

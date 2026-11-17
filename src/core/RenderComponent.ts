@@ -1,20 +1,22 @@
 import { Actor } from "./Actor";
 import { Component } from "./Component";
-import { RenderBuffer, RenderBuffer_Type } from "./RenderBuffer";
+import { RenderBuffer, RenderBufferOptions, RenderBuffer_Type } from "./RenderBuffer";
 import { Transform } from "./Transform";
 
 export class RenderComponent extends Component {
     public buffer: RenderBuffer;
+    private readonly relativeTransform: Transform;
 
-    constructor(owner: Actor, type: RenderBuffer_Type, relativeTransform: Transform) {
+    constructor(
+        owner: Actor,
+        type: RenderBuffer_Type,
+        relativeTransform: Transform,
+        options: RenderBufferOptions = {}
+    ) {
         super(owner);
-        
-        const tTransform: Transform = owner.transform;
-        tTransform.add(relativeTransform);
-        this.buffer = new RenderBuffer(
-            type,
-            tTransform
-        );
+
+        this.relativeTransform = relativeTransform.clone();
+        this.buffer = new RenderBuffer(type, this.getRenderTransform(), options);
     }
 
     override awake() {
@@ -26,6 +28,12 @@ export class RenderComponent extends Component {
     override tick(dt: number) {
         super.tick(dt);
 
-        this.buffer.transform = this.owner.transform;
+        this.buffer.transform = this.getRenderTransform();
+    }
+
+    private getRenderTransform(): Transform {
+        const transform = this.owner.transform.clone();
+        transform.add(this.relativeTransform);
+        return transform;
     }
 }

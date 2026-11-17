@@ -25,6 +25,8 @@ class MyActor extends Nixia.Actor {
 
     override tick(dt: number) {
         super.tick(dt);
+
+        this.transform.position.x += 0.1;
     }
 }
 
@@ -37,6 +39,38 @@ class MyLevel extends Nixia.Level {
         super.awake();
 
         this.root.add(new MyActor());
+
+        const circle = new Nixia.Actor();
+        circle.transform.position = new Nixia.Vector2(220, 40);
+        circle.transform.scale = new Nixia.Vector2(100, 100);
+        circle.registerComponent(new Nixia.PhysicsComponent(
+            circle,
+            this.physicsEngine,
+            { shape: "circle", body: { restitution: 0.4 } }
+        ));
+        circle.registerComponent(new Nixia.RenderComponent(
+            circle,
+            Nixia.RenderBuffer_Type.Circle,
+            Nixia.Transform.ZERO,
+            { color: [0.1, 0.55, 0.95, 1] }
+        ));
+        this.root.add(circle);
+
+        const ground = new Nixia.Actor();
+        ground.transform.position = new Nixia.Vector2(0, 360);
+        ground.transform.scale = new Nixia.Vector2(600, 40);
+        ground.registerComponent(new Nixia.PhysicsComponent(
+            ground,
+            this.physicsEngine,
+            { body: { isStatic: true } }
+        ));
+        ground.registerComponent(new Nixia.RenderComponent(
+            ground,
+            Nixia.RenderBuffer_Type.Rectangle,
+            Nixia.Transform.ZERO,
+            { color: [0.35, 0.35, 0.35, 1] }
+        ));
+        this.root.add(ground);
     }
 }
 
