@@ -69,10 +69,9 @@ export class Application extends Base {
     private _ready(): void {
         this.isReady = true;
         if (!this.defaultLevel) throw new Error("No default level was assigned, cannot create game.");
+        window.app = this;
         this.fire('ready');
         this.defaultLevel.awake();
-
-        window.app = this;
 
         requestAnimationFrame(this._tick);
     }
@@ -106,5 +105,15 @@ export class Application extends Base {
     public setDefaultLevel(defaultLevel: Level): void {
         if (this.isReady) throw new Error("Cannot assign a default level when the game is already running.");
         this.defaultLevel = defaultLevel;
+        this.tickableInstances.push(defaultLevel);
+    }
+
+    /**
+     * Get the renderer.
+     * 
+     * @returns {Renderer}
+     */
+    public getRenderer(): Renderer {
+        return this.renderer;
     }
 }

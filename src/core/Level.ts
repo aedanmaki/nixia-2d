@@ -1,8 +1,10 @@
-// src/core/Level.ts
+ // src/core/Level.ts
 import { Base } from "./Base";
 import { ITickable } from "./ITickable";
 import { IAwakable } from "./IAwakable";
 import { LevelRoot } from "./LevelRoot";
+import { Application } from "./Application";
+import Matter, { Engine } from 'matter-js';
 
 /**
  * Represents a Level.
@@ -19,6 +21,11 @@ export class Level extends Base implements ITickable, IAwakable {
     public readonly root: LevelRoot;
 
     /**
+     * Matter physics engine.
+     */
+    public readonly physicsEngine: Matter.Engine;
+
+    /**
      * Creates a new Level.
      * 
      * @param {string} name The level name.
@@ -28,6 +35,7 @@ export class Level extends Base implements ITickable, IAwakable {
 
         this.name = name;
         this.root = new LevelRoot(this);
+        this.physicsEngine = Engine.create();
     }
 
     /**

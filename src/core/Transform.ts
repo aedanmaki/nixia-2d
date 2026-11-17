@@ -35,4 +35,35 @@ export class Transform {
         this.rotation = rotation;
         this.scale = scale;
     }
+
+    /**
+     * Clones this Transform.
+     * 
+     * @returns {Transform}
+     */
+    clone(): Transform {
+        return new Transform(
+            this.position,
+            this.rotation,
+            this.scale
+        );
+    }
+
+    /**
+     * Adds a transform to this transform
+     * 
+     * @param {Transform} t1
+     * @param {Transform} t2
+     * @returns {Transform}
+     */
+    add(t1: Transform): void {
+        this.position.add(t1.position);
+        this.scale.add(t1.scale);
+    }
+
+    static ZERO: Transform = new Transform(
+            new Vector2(0, 0),
+            new Rotator(0),
+            new Vector2(0, 0)
+        );
 }

@@ -3,11 +3,28 @@ import * as Nixia from './index';
 class MyActor extends Nixia.Actor {
     constructor() {
         super();
+
+        this.transform.position = new Nixia.Vector2(
+            20, 20
+        );
+
+        this.transform.scale = new Nixia.Vector2(
+            150, 150
+        );
+
+        this.registerComponent(new Nixia.RenderComponent(
+            this,
+            Nixia.RenderBuffer_Type.Rectangle,
+            Nixia.Transform.ZERO
+        ));
+    }
+
+    override awake() {
+        super.awake();
     }
 
     override tick(dt: number) {
         super.tick(dt);
-
     }
 }
 
@@ -19,7 +36,7 @@ class MyLevel extends Nixia.Level {
     override awake() {
         super.awake();
 
-        alert("Hello, world!");
+        this.root.add(new MyActor());
     }
 }
 

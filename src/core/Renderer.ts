@@ -1,6 +1,9 @@
 // src/core/Renderer.ts
 import { Base } from "./Base";
-import { RenderBuffer } from "./RenderBuffer";
+import { RenderBuffer, RenderBuffer_Type } from "./RenderBuffer";
+import { Vector2 } from "./Vector2";
+import { Rotator } from "./Rotator";
+import { Transform } from "./Transform";
 
 /**
  * Represents a Renderer.
@@ -19,7 +22,7 @@ export class Renderer extends Base {
     /**
      * Render buffers.
      */
-    private buffers: RenderBuffer[] = [];
+    public buffers: RenderBuffer[] = [];
 
     /**
      * Creates a new Renderer.
@@ -35,6 +38,7 @@ export class Renderer extends Base {
         document.body.appendChild(this.canvas);
         const ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
         this.ctx = ctx;
+        this.ctx.fillStyle = '#262626';
     }
 
     /**
@@ -48,13 +52,23 @@ export class Renderer extends Base {
      * Draws the buffers onto the canvas.
      */
     public draw() {
+        console.log('draw');
         const buffers = this.buffers;
         const len = buffers.length;
 
         for (let i = 0; i < len; i++) {
             const buffer = buffers[i];
             if (buffer.bufferType === RenderBuffer_Type.Rectangle) {
-                
+                const position: Vector2 = buffer.transform.position;
+                const rotation: Rotator = buffer.transform.rotation;
+                const scale: Vector2 = buffer.transform.scale;
+
+                this.ctx.fillRect(
+                    position.x,
+                    position.y,
+                    scale.x,
+                    scale.y
+                );
             }
         }
     }
